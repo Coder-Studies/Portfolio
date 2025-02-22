@@ -1,4 +1,20 @@
 @import "tailwindcss";
+::-webkit-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #0C0C0D; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b5b5b5; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0; /* Color of the thumb on hover */
+}
 
 .shiny-text {
     color: #b5b5b5a4; /* Adjust this color to change intensity/style */

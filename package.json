@@ -13,10 +13,12 @@
     "@tailwindcss/vite": "^4.0.8",
     "framer-motion": "^12.4.7",
     "gsap": "^3.12.7",
+    "lenis": "^1.1.20",
     "ogl": "^1.0.11",
     "postprocessing": "^6.36.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
     "tailwindcss": "^4.0.8",
     "three": "^0.173.0"
   },

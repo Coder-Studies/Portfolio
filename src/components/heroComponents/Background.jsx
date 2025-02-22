@@ -3,7 +3,7 @@ import Particles from '../Particles'
 
 const Background = () => {
   return (
-    <section className="w-full h-screen bg-zinc-900 fixed top-0">
+    <section className="w-full h-screen bg-zinc-900">
   <Particles
     particleColors={['#ffffff', '#ffffff']}
     particleCount={200}
