@@ -6,7 +6,10 @@ const defaultColors = ["#ffffff", "#ffffff", "#ffffff"];
 const hexToRgb = (hex) => {
   hex = hex.replace(/^#/, "");
   if (hex.length === 3) {
-    hex = hex.split("").map((c) => c + c).join("");
+    hex = hex
+      .split("")
+      .map((c) => c + c)
+      .join("");
   }
   const int = parseInt(hex, 16);
   const r = ((int >> 16) & 255) / 255;
@@ -127,7 +130,10 @@ const Particles = ({
     const positions = new Float32Array(count * 3);
     const randoms = new Float32Array(count * 4);
     const colors = new Float32Array(count * 3);
-    const palette = particleColors && particleColors.length > 0 ? particleColors : defaultColors;
+    const palette =
+      particleColors && particleColors.length > 0
+        ? particleColors
+        : defaultColors;
 
     for (let i = 0; i < count; i++) {
       let x, y, z, len;
@@ -139,7 +145,10 @@ const Particles = ({
       } while (len > 1 || len === 0);
       const r = Math.cbrt(Math.random());
       positions.set([x * r, y * r, z * r], i * 3);
-      randoms.set([Math.random(), Math.random(), Math.random(), Math.random()], i * 4);
+      randoms.set(
+        [Math.random(), Math.random(), Math.random(), Math.random()],
+        i * 4
+      );
       const col = hexToRgb(palette[Math.floor(Math.random() * palette.length)]);
       colors.set(col, i * 3);
     }
@@ -222,10 +231,7 @@ const Particles = ({
   ]);
 
   return (
-    <div
-      ref={containerRef}
-      className={`relative w-full h-full ${className}`}
-    />
+    <div ref={containerRef} className={`relative w-full h-full ${className}`} />
   );
 };
 

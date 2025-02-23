@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-
 const getRotationTransition = (duration, from, loop = true) => ({
   from: from,
   to: from + 360,
@@ -89,7 +88,7 @@ const CircularText = ({
   return (
     <motion.div
       initial={{ rotate: 0 }}
-      className={`mx-auto rounded-full w-[80px]  h-[80px] max-[640px]:w-[10px] text-white font-bold text-center cursor-pointer origin-center ${className}`}
+      className={`mx-auto rounded-full w-[80px] max-[640px]:w-[60px] h-[80px] max-[640px]:h-[60px] text-white font-bold text-center cursor-pointer origin-center ${className}`}
       animate={controls}
       onUpdate={(latest) => setCurrentRotation(Number(latest.rotate))}
       onMouseEnter={handleHoverStart}
@@ -105,7 +104,7 @@ const CircularText = ({
         return (
           <span
             key={i}
-            className="absolute inline-block inset-0 text-sm transition-all duration-500 ease-[cubic-bezier(0,0,0,1)]"
+            className="absolute inline-block inset-0 text-sm max-[640px]:text-[2.5vw] transition-all duration-500 ease-[cubic-bezier(0,0,0,1)]"
             style={{ transform, WebkitTransform: transform }}
           >
             {letter}
