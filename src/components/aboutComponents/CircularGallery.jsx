@@ -361,39 +361,39 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       {
-        image: `../../src/assets/images/html.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401690/html_czqdoz.svg`,
         text: "HTML 5",
       },
       {
-        image: `../../src/assets/images/css.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401688/css_uevrzn.svg`,
         text: "CSS 3",
       },
       {
-        image: `../../src/assets/images/tailwind.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401691/tailwind_qz3q5q.svg`,
         text: "Tailwind CSS",
       },
       {
-        image: `../../src/assets/images/js.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401689/js_kcpkjh.svg`,
         text: "JavaScript",
       },
       {
-        image: `../../src/assets/images/gsap.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401688/gsap_fe9ysp.svg`,
         text: "GSAP",
       },
       {
-        image: `../../src/assets/images/mongo.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401696/mongo_qi3vvo.svg`,
         text: "Mongo DB",
       },
       {
-        image: `../../src/assets/images/docker.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401688/docker_sqq3wu.svg`,
         text: "Docker",
       },
       {
-        image: `../../src/assets/images/postman.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401691/postman_edldjb.svg`,
         text: "Postman",
       },
       {
-        image: `../../src/assets/images/github.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401688/github_ygs42r.svg`,
         text: "Github",
       },
     ];

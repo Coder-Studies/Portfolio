@@ -6,7 +6,7 @@ const Hero = () => {
     <section className="w-full h-screen bg-black/50 absolute top-0 z-[99] pointer-events-none pt-20 max-[640px]:pt-10">
       <div className="flex w-full h-full gap-4 flex-col items-center justify-center text-white px-4 max-[640px]:px-2">
         <img
-          src="../../src/assets/images/dp.svg"
+          src="https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401689/dp_phjacv.svg"
           alt="Profile"
           className="w-30 h-30 rounded-full border-2 border-zinc-800 grayscale"
         />
