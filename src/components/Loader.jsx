@@ -1,21 +1,59 @@
-import gsap from "gsap";
-import React, { useEffect, useRef } from "react";
-import CountUp from "./CoutUp";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Typewriter } from "react-simple-typewriter";
 
-const Loader = () => {
+const languages = [
+  "Hello",
+  "नमस्कार",
+  "مرحبًا",
+  "Bonjour",
+  "Hola",
+  "Ciao",
+  "Guten Tag",
+  "こんにちは",
+  "안녕하세요",
+  "你好",
+];
+
+const Loader = ({ onLoaded }) => {
+  const [index, setIndex] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % languages.length);
+    }, 2000);
+
+    window.addEventListener("load", () => {
+      setTimeout(() => setLoaded(true), 5000);
+    });
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("load", () => {});
+    };
+  }, []);
+
   return (
-    <div className="fixed text-6xl font-[bold] top-0 left-0 z-[999999999] w-full h-screen flex items-center justify-center flex-col bg-zinc-900 text-zinc-200">
-      <h1>🙏</h1>
-      <h1>Namaskar</h1>
-      <CountUp
-        from={0}
-        to={100}
-        separator=","
-        direction="up"
-        duration={1.5}
-        className="count-up-text absolute bottom-5 right-5"
-      />
-    </div>
+    <motion.div
+      className="fixed inset-0 flex items-center justify-center bg-zinc-900 text-zinc-200 text-6xl font-[bold]"
+      initial={{ y: 0 }}
+      animate={loaded ? { y: "-100%", opacity: 0 } : { y: 0, opacity: 1 }}
+      transition={{ duration: 1.5, ease: "easeInOut" }}
+      style={{ display: loaded ? "none" : "flex" }}
+    >
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -30 }}
+        transition={{ duration: 1 }}
+        className="shiny-text"
+      >
+      <h1 className="text-center mb-4">👋</h1>
+        <Typewriter words={[languages[index]]} loop={1} typeSpeed={80} />
+      </motion.div>
+    </motion.div>
   );
 };
 

@@ -7,48 +7,42 @@ import Projects from "./section/Projects";
 import ScrollVelocity from "./section/ScrollVelocity";
 import Cursor from "./components/Cursor";
 import Loader from "./components/Loader";
-import gsap from "gsap";
+import Testimonials from "./section/Testimonials";
+import About from "./section/About";
+import Contact from "./section/Contact";
+import Footer from "./section/Footer";
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    let isMounted = true;
-    const loadPromise = new Promise((resolve) =>
-      window.addEventListener("load", resolve)
-    );
-    const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 2000));
-
-    Promise.all([loadPromise, timeoutPromise]).then(() => {
-      if (isMounted) {
-        setIsLoading(false);
-      }
-    });
-
-    return () => {
-      isMounted = false;
-      window.removeEventListener("load", loadPromise);
-    };
+    setTimeout(() => setIsLoaded(true), 5000);
   }, []);
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
   return (
-    <div className="relative overflow-hidden">
-      <Cursor />
-      <Background />
-      <Navbar />
-      <Hero />
-      <Skills />
-      <Projects />
-      <ScrollVelocity
-        texts={["Abhisekh Kumar", "Backend Developer"]}
-        velocity={100}
-        className="custom-scroll-text bg-[#0C0C0D] text-zinc-200 font-[bold] select-none"
-      />
-    </div>
+    <>
+      {!isLoaded ? (
+        <Loader />
+      ) : (
+        <div className="relative overflow-hidden">
+          <Cursor />
+          <Background />
+          <Navbar />
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Testimonials />
+          <ScrollVelocity
+            texts={["Abhisekh Kumar", "Backend Developer"]}
+            velocity={100}
+            className="custom-scroll-text bg-[#0C0C0D] text-zinc-200 font-[bold] select-none"
+          />
+          <Contact />
+          <Footer />
+        </div>
+      )}
+    </>
   );
 };
 

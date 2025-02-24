@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CircularText from "./heroComponents/CircularText";
 import Magnet from "./heroComponents/Magnet";
 import { RiMenu3Fill } from "react-icons/ri";
@@ -7,6 +7,38 @@ import { gsap } from "gsap";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 0) {
+        setShowNavbar(true);
+        return;
+      }
+
+      if (Math.abs(currentScrollY - lastScrollY.current) < 10) {
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 10) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    const debouncedHandleScroll = () => {
+      setTimeout(handleScroll, 10);
+    };
+
+    window.addEventListener("scroll", debouncedHandleScroll);
+    return () => window.removeEventListener("scroll", debouncedHandleScroll);
+  }, []);
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
@@ -32,7 +64,7 @@ const Navbar = () => {
   return (
     <>
       {/* Mobile Navigation */}
-      <nav className="fixed hidden max-[640px]:block w-full h-screen bg-zinc-950 top-0 z-[999] mobile-nav transition-transform duration-500 translate-x-full">
+      <nav className="fixed hidden max-[640px]:block w-full h-screen backdrop-blur-3xl top-0 z-[999] mobile-nav transition-transform duration-500 translate-x-full">
         <div className="links text-5xl w-full h-full flex items-center justify-center gap-6 flex-col">
           {[
             {
@@ -61,7 +93,11 @@ const Navbar = () => {
       </nav>
 
       {/* Top Navbar */}
-      <nav className="fixed top-0 left-1/2 -translate-x-1/2 z-[9999] w-[90%] max-[640px]:w-full mx-auto max-[640px]:px-4 pt-2 flex items-center justify-between text-zinc-200 border-b-[1px] border-zinc-900">
+      <nav
+        className={`fixed top-0 left-1/2 -translate-x-1/2 z-[9999] backdrop-blur-sm w-[90%] max-[640px]:w-full mx-auto max-[640px]:px-4 pt-2 flex items-center justify-between text-zinc-200 border-b-[1px] border-zinc-900 transition-transform duration-300 ${
+          showNavbar ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <div>
           <Magnet
             disabled={false}
@@ -77,7 +113,7 @@ const Navbar = () => {
           </Magnet>
         </div>
 
-        {/* Toggle Icons - Show Menu Icon if Closed, Close Icon if Open */}
+        {/* Toggle Icons */}
         {isOpen ? (
           <MdOutlineClose
             onClick={toggleNav}

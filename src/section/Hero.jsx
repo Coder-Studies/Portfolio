@@ -11,12 +11,12 @@ const Hero = () => {
           className="w-30 h-30 rounded-full border-2 border-zinc-800 grayscale"
         />
         <p className="shiny-text text-md">Hi, I'm Abhisekh Kumar 👋</p>
-        <p className="text-6xl max-[640px]:text-[10vw] w-[55%] max-[640px]:w-full font-light text-center leading-tight shiny-text">
+        <p className="text-[4vw] max-[640px]:text-[10vw] w-[45%] max-[640px]:w-full font-light text-center leading-tight shiny-text">
           Building scalable backends, APIs, and full-stack solutions.
         </p>
 
         <Magnet disabled={false} magnetStrength={20} className="cursor-pointer">
-          <button className="mt-4 bg-zinc-900 px-6 py-2 rounded cursor-pointer pointer-events-auto">
+          <button className="mt-2 bg-zinc-900 px-6 py-2 rounded cursor-pointer pointer-events-auto">
             <a
               href="https://www.linkedin.com/in/abhishek-gupta-545aa2260/"
               target="_blank"
