@@ -14,9 +14,9 @@ const Navbar = () => {
 
     if (isOpen) {
       gsap.to(navElement, {
-        rotate: 20,
+        rotate: -60,
         duration: 0.5,
-        x: "135%",
+        x: "165%",
         ease: "power2.out",
       });
     } else {
@@ -32,11 +32,7 @@ const Navbar = () => {
   return (
     <>
       {/* Mobile Navigation */}
-      <nav
-        className={`fixed hidden max-[640px]:block w-full h-screen bg-zinc-950 top-0 z-[999] mobile-nav transition-transform duration-500 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
+      <nav className="fixed hidden max-[640px]:block w-full h-screen bg-zinc-950 top-0 z-[999] mobile-nav transition-transform duration-500 translate-x-full">
         <div className="links text-5xl w-full h-full flex items-center justify-center gap-6 flex-col">
           {[
             {
@@ -52,8 +48,13 @@ const Navbar = () => {
               url: "https://github.com/Code-With-Abhishek-Kumar",
             },
           ].map((link, index) => (
-            <a href={link.url} target="_blank" key={index} className="shiny-text">
-                {link.name}
+            <a
+              href={link.url}
+              target="_blank"
+              key={index}
+              className="shiny-text"
+            >
+              {link.name}
             </a>
           ))}
         </div>

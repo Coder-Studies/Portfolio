@@ -61,7 +61,7 @@ class Title {
     plane,
     renderer,
     text,
-    textColor = "#545050",
+    textColor = "#e4e4e7",
     font = "30px sans-serif",
   }) {
     autoBind(this);
@@ -320,9 +320,9 @@ class App {
     {
       items,
       bend,
-      textColor = "#ffffff",
+      textColor = "#e4e4e7",
       borderRadius = 0,
-      font = "bold 30px DM Sans",
+      font = "bold 50px",
     } = {}
   ) {
     document.documentElement.classList.remove("no-js");
@@ -361,39 +361,39 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       {
-        image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEc9A_S6BPxCDRp5WjMFEfXrpCu1ya2OO-Lw&s`,
+        image: `../../src/assets/images/html.svg`,
         text: "HTML 5",
       },
       {
-        image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7UbgCQjb0mCUe8Sk7QAz2y4KxOXXe0D-Itg&s`,
+        image: `../../src/assets/images/css.svg`,
         text: "CSS 3",
       },
       {
-        image: `https://made-byshape.transforms.svdcdn.com/production/uploads/images/tailwind-thumb.jpg?w=400&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1609771799&s=f4f2d93d9e2c9cf40b964258bf5cd4b1`,
+        image: `../../src/assets/images/tailwind.svg`,
         text: "Tailwind CSS",
       },
       {
-        image: `https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/640px-JavaScript-logo.png`,
+        image: `../../src/assets/images/js.svg`,
         text: "JavaScript",
       },
       {
-        image: `https://assets.awwwards.com/awards/avatar/2152182/652d1de29c2e9754617887.png`,
+        image: `../../src/assets/images/gsap.svg`,
         text: "GSAP",
       },
       {
-        image: `https://cdn.worldvectorlogo.com/logos/mongodb-icon-2.svg`,
+        image: `../../src/assets/images/mongo.svg`,
         text: "Mongo DB",
       },
       {
-        image: `https://www.docker.com/app/uploads/2023/08/logo-guide-logos-2.svg`,
+        image: `../../src/assets/images/docker.svg`,
         text: "Docker",
       },
       {
-        image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3znC2phPtraIt6OG2Ej8QRb515gFyhK8H5yDgg37KcKLTlKGAbclzKOnF_0W7Y5p-DtY&usqp=CAU`,
+        image: `../../src/assets/images/postman.svg`,
         text: "Postman",
       },
       {
-        image: `https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png`,
+        image: `../../src/assets/images/github.svg`,
         text: "Github",
       },
     ];
