@@ -361,39 +361,39 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401690/html_czqdoz.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403230/html_czqdoz.svg`,
         text: "HTML 5",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401688/css_uevrzn.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403135/css_uevrzn.svg`,
         text: "CSS 3",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401691/tailwind_qz3q5q.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403171/tailwind_qz3q5q.svg`,
         text: "Tailwind CSS",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401689/js_kcpkjh.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403147/js_kcpkjh.svg`,
         text: "JavaScript",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401688/gsap_fe9ysp.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403122/gsap_fe9ysp.svg`,
         text: "GSAP",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401696/mongo_qi3vvo.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403182/mongo_qi3vvo.svg`,
         text: "Mongo DB",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401688/docker_sqq3wu.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403108/docker_sqq3wu.svg`,
         text: "Docker",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401691/postman_edldjb.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403162/postman_edldjb.svg`,
         text: "Postman",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740401688/github_ygs42r.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403096/github_ygs42r.svg`,
         text: "Github",
       },
     ];
