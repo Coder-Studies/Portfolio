@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
+import CountUp from "./CoutUp";
 
 const languages = [
   "Hello",
@@ -50,9 +51,12 @@ const Loader = ({ onLoaded }) => {
         transition={{ duration: 1 }}
         className="shiny-text"
       >
-      <h1 className="text-center mb-4">👋</h1>
+        <h1 className="text-center mb-4">👋</h1>
         <Typewriter words={[languages[index]]} loop={1} typeSpeed={80} />
       </motion.div>
+      <div className="absolute bottom-10 right-10">
+        <CountUp to={100} className="text-zinc-200" />
+      </div>
     </motion.div>
   );
 };

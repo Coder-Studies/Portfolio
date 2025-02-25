@@ -361,39 +361,51 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403230/html_czqdoz.svg`,
-        text: "HTML 5",
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506626/html_czqdoz.svg`,
+        text: "HTML",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403135/css_uevrzn.svg`,
-        text: "CSS 3",
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506577/css_uevrzn.svg`,
+        text: "CSS",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403171/tailwind_qz3q5q.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506615/tailwind_qz3q5q.svg`,
         text: "Tailwind CSS",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403147/js_kcpkjh.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506592/js_kcpkjh.svg`,
         text: "JavaScript",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403122/gsap_fe9ysp.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506564/gsap_fe9ysp.svg`,
         text: "GSAP",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403182/mongo_qi3vvo.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506521/react_pnexmf.svg`,
+        text: "React JS",
+      },
+      {
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506486/node_xhfd9e.svg`,
+        text: "Node JS",
+      },
+      {
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506509/ex_jabtu8.svg`,
+        text: "Express JS",
+      },
+      {
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506531/mongo_qi3vvo.svg`,
         text: "Mongo DB",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403108/docker_sqq3wu.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506553/docker_sqq3wu.svg`,
         text: "Docker",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403162/postman_edldjb.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506602/postman_edldjb.svg`,
         text: "Postman",
       },
       {
-        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740403096/github_ygs42r.svg`,
+        image: `https://res.cloudinary.com/dbgzq41x2/image/upload/v1740506542/github_ygs42r.svg`,
         text: "Github",
       },
     ];
@@ -536,7 +548,7 @@ export default function CircularGallery({
   }, [items, bend, textColor, borderRadius, font]);
   return (
     <div
-      className="w-full h-[70%]  overflow-hidden cursor-grab active:cursor-grabbing"
+      className="w-full h-[70%] overflow-hidden cursor-grab active:cursor-grabbing"
       ref={containerRef}
     />
   );

@@ -1,13 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTwitter,
-  FaEnvelope,
-  FaInstagram,
-} from "react-icons/fa";
-import Magnet from "../components/heroComponents/Magnet";
+import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -28,7 +21,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="relative bg-[#0C0C0D] text-zinc-300 border-t border-[#ffffff10] backdrop-blur-3xl">
+    <footer className="relative bg-[#0C0C0D] text-zinc-200 border-t border-[#ffffff10] backdrop-blur-3xl mt-20">
       <div className="max-w-7xl mx-auto px-8 max-[640px]:px-6 pt-10 pb-6">
         <div className="flex flex-col md:flex-row gap-12 justify-between">
           {/* Left Column */}
@@ -40,7 +33,7 @@ const Footer = () => {
           >
             <h3 className="text-4xl font-[bold] shiny-text">Let's Connect</h3>
             <div className="flex flex-col gap-2 font-[medium]">
-              <p className="flex ml-1 items-center gap-4 hover:text-[#C02F17] transition-colors">
+              <p className="flex ml-1 items-center gap-4 hover:text-zinc-500 transition-colors">
                 <FaEnvelope className="text-xl" />
                 abhisekh@dev.com
               </p>
@@ -59,39 +52,40 @@ const Footer = () => {
           </motion.div>
 
           {/* Social Links */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             <h3 className="text-4xl font-[bold] shiny-text">Follow Me</h3>
             <div className="flex gap-6">
               {[
                 {
                   icon: <FaGithub />,
                   link: "https://github.com/Code-With-Abhishek-Kumar",
+                  color: "#111",
                 },
                 {
                   icon: <FaLinkedin />,
                   link: "https://www.linkedin.com/in/abhishek-gupta-545aa2260/",
+                  color: "#0A66C2",
                 },
                 {
                   icon: <FaInstagram />,
                   link: "https://www.instagram.com/abhishek_gupta.ig/",
+                  color: "#E1306C",
                 },
               ].map((social, index) => (
-                <motion.a
+                <a
                   key={index}
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  className="text-3xl p-3 rounded-full bg-zinc-900 hover:bg-[#C02F17] transition-all"
+                  className="text-3xl p-3 rounded-full bg-zinc-900 hover:bg-zinc-100 transition-all"
+                  style={{ "--hover-color": social.color }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = social.color)
+                  }
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "")}
                 >
-                  <Magnet
-                    disabled={false}
-                    magnetStrength={20}
-                    className="cursor-pointer"
-                  >
-                    {social.icon}
-                  </Magnet>
-                </motion.a>
+                  {social.icon}
+                </a>
               ))}
             </div>
           </div>

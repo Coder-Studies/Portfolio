@@ -17,6 +17,10 @@
   src: url(./assets/fonts/gilroy/Gilroy-Bold.ttf);
 }
 
+* {
+  user-select: none;
+}
+
 ::-webkit-scrollbar {
   width: 5px; /* Width of the scrollbar */
 }

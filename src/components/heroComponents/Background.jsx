@@ -1,5 +1,5 @@
 import React from "react";
-import Particles from "../Particles";
+import Particles from "./Particles";
 
 const Background = () => {
   return (

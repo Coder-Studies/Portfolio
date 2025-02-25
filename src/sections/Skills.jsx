@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CircularGallery from "../components/CircularGallery";
+import CircularGallery from "../components/skillsComponents/CircularGallery";
 
 const Skills = () => {
   const [isMobile, setisMobile] = useState(window.innerWidth < 640);
@@ -11,11 +11,11 @@ const Skills = () => {
   window.addEventListener("resize", handleResize);
 
   return (
-    <div className="w-full h-screen bg-[#0C0C0D] relative pt-20 max-[640px]:pt-[40%]">
-      <div className="text absolute font-[bold] top-[0%] max-[640px]:top-10 max-[640px]:left-5 left-22 text-zinc-200 text-5xl shiny-text leading-tight">
+    <div className="w-full h-screen bg-[#0C0C0D] relative pt-20 max-[640px]:pt-[20%]">
+      <div className="text text-center pb-20 font-[bold] text-zinc-200 text-5xl shiny-text leading-tight">
         <h1>My Skillset⚡</h1>
       </div>
-      <div className="absolute top-[5%] max-[640px]:top-[12%] right-36 max-[640px]:-right-20">
+      <div className="absolute top-[30%] max-[640px]:top-[20%] right-36 max-[640px]:-right-20">
         <svg
           className="max-[640px]:w-1/2"
           width="250"
@@ -58,7 +58,11 @@ const Skills = () => {
           ></path>
         </svg>
       </div>
-      <CircularGallery bend={isMobile ? 0 : 10} />
+      <CircularGallery
+        bend={isMobile ? 0 : 50}
+        borderRadius={0.05}
+        textColor="#e4e4e7"
+      />
     </div>
   );
 };
