@@ -13,7 +13,7 @@ import {
 const Contact = () => {
   const sectionRef = useRef();
   const socialLinks = [
-    { icon: <FaEnvelope />, url: "mailto:abhisekh@dev.com", color: "#b5b5b5" },
+    { icon: <FaEnvelope />, url: "mailto:abhishek9661342993@gmail.com", color: "#b5b5b5" },
     {
       icon: <FaLinkedin />,
       url: "https://linkedin.com/in/abhishek-gupta",
@@ -125,7 +125,7 @@ const Contact = () => {
                     href="mailto:abhisekh@dev.com"
                     className="text-xl hover:text-white/70 transition-colors flex items-center gap-2"
                   >
-                    abhisekh@dev.com
+                    abhishek9661342993@gmail.com
                     <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                       ↗
                     </span>
