@@ -105,7 +105,7 @@ const Navbar = () => {
             className="cursor-pointer"
           >
             <CircularText
-              text="ABHISEKH*KUMAR*"
+              text="*ABHISHEK*KUMAR*"
               onHover="slowDown"
               spinDuration={10}
               className="custom"
