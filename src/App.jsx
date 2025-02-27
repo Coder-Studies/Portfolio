@@ -37,7 +37,7 @@ const App = () => {
           <Testimonials />
           <Contact />
           <ScrollVelocity
-            texts={["Abhisekh Kumar", "Backend Developer"]}
+            texts={["Abhishek Kumar", "Backend Developer"]}
             velocity={100}
             className="custom-scroll-text bg-[#0C0C0D] text-zinc-200 font-[bold] select-none"
           />
