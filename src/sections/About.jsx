@@ -12,7 +12,7 @@ const AboutMe = () => {
                 {word}
               </span>
             ))}
-            <span className="word inline-block">Abhisekh</span>
+            <span className="word inline-block">Abhishek</span>
             <span className="word inline-block">Kumar</span>
             <motion.span
               className="word inline-block ml-3"
