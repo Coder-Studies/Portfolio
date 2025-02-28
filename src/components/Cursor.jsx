@@ -24,7 +24,7 @@ const Cursor = () => {
 
   return (
     <div
-      className="custom-cursor fixed z-[99999] w-3 h-3 bg-[#e4e4e7] rounded-full pointer-events-none mix-blend-difference"
+      className="custom-cursor fixed z-[99999] w-3 h-3 bg-[#e4e4e7] rounded-full pointer-events-none mix-blend-difference max-[999px]:hidden"
       style={{
         opacity: 0.7,
       }}

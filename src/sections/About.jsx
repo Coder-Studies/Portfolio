@@ -61,9 +61,9 @@ const AboutMe = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-[#222] to-[#111] rounded-3xl transform rotate-2 scale-105 group-hover:rotate-0 transition-all duration-500" />
             <div className="absolute inset-0 bg-[#0C0C0D] rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://avatars.githubusercontent.com/u/122656682?v=4"
+                src="https://res.cloudinary.com/dbgzq41x2/image/upload/v1740769219/abhi1_avh68c.jpg"
                 alt="Abhisekh Kumar"
-                className="w-full grayscale rotate-y-180 h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                className="w-full grayscale h-full object-cover object-bottom transform scale-125 group-hover:scale-[130%] transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0D]/90 via-transparent to-transparent" />
             </div>
