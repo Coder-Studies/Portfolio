@@ -98,7 +98,7 @@ const Footer = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            © {currentYear} Abhisekh Kumar. Design & Frontend By{" "}
+            © {currentYear} Abhishek Kumar. Designed & Developed With ❤️ By{" "}
             <a
               href="https://www.linkedin.com/in/dev-sameer-khan/"
               className="font-[semibold]"

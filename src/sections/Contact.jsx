@@ -13,7 +13,7 @@ import {
 const Contact = () => {
   const sectionRef = useRef();
   const socialLinks = [
-    { icon: <FaEnvelope />, url: "mailto:abhisekh@dev.com", color: "#b5b5b5" },
+    { icon: <FaEnvelope />, url: "mailto:abhishek9661342993@gmail.com", color: "#b5b5b5" },
     {
       icon: <FaLinkedin />,
       url: "https://linkedin.com/in/abhishek-gupta",
