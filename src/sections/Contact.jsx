@@ -20,7 +20,9 @@ const Contact = () => {
 
   const sectionRef = useRef()
   const socialLinks = [
-    { icon: <FaEnvelope />, url: 'mailto:abhisekh@dev.com', color: '#b5b5b5' },
+
+    { icon: <FaEnvelope />, url: "mailto:abhishek9661342993@gmail.com", color: "#b5b5b5" },
+
     {
       icon: <FaLinkedin />,
       url: 'https://linkedin.com/in/abhishek-gupta',
@@ -117,6 +119,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
+
         <div className='grid lg:grid-cols-2 gap-12 w-full z-10'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -160,6 +163,7 @@ const Contact = () => {
                   placeholder='Message 💬'
                 />
               </div>
+
 
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -231,6 +235,9 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
+
+</div>
+
 
       <div className='absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0C0C0D] to-transparent z-10' />
     </section>

@@ -8,7 +8,7 @@ const Background = () => {
         particleColors={["#ffffff", "#ffffff"]}
         particleCount={200}
         particleSpread={10}
-        speed={0.03}
+        speed={0.02}
         particleBaseSize={100}
         moveParticlesOnHover={true}
         alphaParticles={false}

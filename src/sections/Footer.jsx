@@ -35,7 +35,7 @@ const Footer = () => {
             <div className="flex flex-col gap-2 font-[medium]">
               <p className="flex ml-1 items-center gap-4 hover:text-zinc-500 transition-colors">
                 <FaEnvelope className="text-xl" />
-                abhisekh@dev.com
+                abhishek9661342993@gmail.com
               </p>
               <p className="flex items-center gap-3">
                 <span className="text-xl">📍</span>
@@ -98,13 +98,19 @@ const Footer = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            © {currentYear} Abhisekh Kumar. Designed & Developed With ❤️ By{" "}
+            © {currentYear} Abhishek Kumar. Designed & Developed With ❤️ By{" "}
             <a
               href="https://www.linkedin.com/in/dev-sameer-khan/"
               className="font-[semibold]"
             >
               Sameer Khan
             </a>{" "}
+            , Backend By{" "}
+            <a
+              href="https://www.linkedin.com/in/abhishek-gupta-545aa2260/"
+              className="font-[semibold]">
+                Abhishek Kumar
+              </a>
             🚀
           </motion.p>
         </div>
