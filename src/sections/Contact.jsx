@@ -192,10 +192,10 @@ const Contact = () => {
                     Direct Line
                   </h3>
                   <a
-                    href='mailto:abhisekh@dev.com'
+                    href='mailto:abhishek9661342993@gmail.com'
                     className='text-xl hover:text-white/70 transition-colors flex items-center gap-2'
                   >
-                    abhisekh@dev.com
+                    abhishek9661342993@gmail.com
                     <span className='text-sm opacity-0 group-hover:opacity-100 transition-opacity'>
                       ↗
                     </span>
@@ -235,12 +235,8 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
-
-</div>
-
-
-      <div className='absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0C0C0D] to-transparent z-10' />
-    </section>
+ 
+   </section>
   )
 }
 
