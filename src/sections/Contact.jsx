@@ -1,5 +1,6 @@
+import { useEffect, useRef, useState } from "react";
+import Swal from "sweetalert2";
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
 import {
   FaEnvelope,
   FaLinkedin,
@@ -9,8 +10,14 @@ import {
   FaBehance,
   FaDownload,
 } from "react-icons/fa";
+import axios from "axios";
 
 const Contact = () => {
+  const [Name, setName] = useState('')
+  const [Email, setEmail] = useState('')
+  const [Phone, setPhone] = useState('')
+  const [Message, setMessage] = useState('')
+
   const sectionRef = useRef();
   const socialLinks = [
     { icon: <FaEnvelope />, url: "mailto:abhisekh@dev.com", color: "#b5b5b5" },
@@ -41,6 +48,59 @@ const Contact = () => {
     },
   ];
 
+
+  let Token = import.meta.env.VITE_TOKEN;
+
+  if (!Token) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      theme: "dark",
+      
+      text: "Token is missing in .env file",
+    });
+  }
+
+
+  let Handle_Submit = async(e) => {
+e.preventDefault()
+
+try {
+  let res = await axios.post('/api/v1/Contact/create', {
+    name: Name,
+    email: Email,
+    phone: Phone,
+    message: Message,
+  
+  },{
+    headers: {
+      'Authorization': `${Token}`
+    }
+  })
+ 
+
+  Swal.fire({
+    icon: "success",
+    title: "Success",
+    theme: "dark",
+    text: res.data.message,
+  });
+
+} catch (error) {
+ 
+  Swal.fire({
+    icon: "error",
+    title: "Error",
+    theme: "dark",
+    text: error.response.data.message || "Something went wrong",
+  });
+}
+
+
+  }
+
+
+
   return (
     <section
       ref={sectionRef}
@@ -70,10 +130,11 @@ const Contact = () => {
             transition={{ delay: 0.2 }}
             className="glass-container backdrop-blur-3xl rounded-3xl border border-white/10 p-8 shadow-2xl"
           >
-            <form className="space-y-8">
+            <form className="space-y-8" onSubmit={(e)=> Handle_Submit(e)}>
               <div className="floating-input-group">
                 <input
                   type="text"
+                  onInput={(e)=>setName(e.target.value)}
                   className="w-full p-4 bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#b5b5b5] transition-all"
                   placeholder="Your Name ✍️"
                 />
@@ -82,13 +143,24 @@ const Contact = () => {
               <div className="floating-input-group">
                 <input
                   type="email"
+                  onInput={(e)=>setEmail(e.target.value)}
                   className="w-full p-4 bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#b5b5b5] transition-all"
                   placeholder="Email 📧"
                 />
               </div>
 
+              <div className="floating-input-group Mobile">
+                <input
+                onInput={(e)=>setPhone(Number(e.target.value))}
+                  type="text"
+                  className="w-full p-4 bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#b5b5b5] transition-all"
+                  placeholder="Your Phone Number  📞"
+                />
+              </div>
+
               <div className="floating-input-group">
                 <textarea
+                  onInput={(e)=>setMessage(e.target.value)}
                   rows="4"
                   className="w-full p-4 bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#b5b5b5] transition-all"
                   placeholder="Message 💬"
