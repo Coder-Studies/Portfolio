@@ -10,7 +10,7 @@ const Hero = () => {
           alt="Profile"
           className="w-30 h-30 rounded-full border-2 border-zinc-800 grayscale"
         />
-        <p className="shiny-text text-md">Hi, I'm Abhisekh Kumar 👋</p>
+        <p className="shiny-text text-md">Hi, I'm Abhishek Kumar 👋</p>
         <p className="text-[4vw] max-[640px]:text-[10vw] w-[45%] max-[640px]:w-full font-light text-center leading-tight shiny-text">
           Building scalable backends, APIs, and full-stack solutions.
         </p>
