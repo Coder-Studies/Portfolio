@@ -1,0 +1,2 @@
+# Proxy all /api/* requests to the backend
+/api/*  https://portfolio-backend-pr9b.onrender.com/:splat  200
