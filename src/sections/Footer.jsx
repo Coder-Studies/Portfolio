@@ -25,33 +25,43 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-8 max-[640px]:px-6 pt-10 pb-6">
         <div className="flex flex-col md:flex-row gap-12 justify-between">
           {/* Left Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-4"
-          >
-            <h3 className="text-4xl font-[bold] shiny-text">Let's Connect</h3>
-            <div className="flex flex-col gap-2 font-[medium]">
-              <p className="flex ml-1 items-center gap-4 hover:text-zinc-500 transition-colors">
-                <FaEnvelope className="text-xl" />
-                abhishek9661342993@gmail.com
-              </p>
-              <p className="flex items-center gap-3">
-                <span className="text-xl">📍</span>
-                Bagodar, Jharkhand, India
-              </p>
-              <p className="flex items-center gap-3">
-                <span className="text-xl">🕒</span>
-                <span className="flex flex-col">
-                  <span>{currentTime}</span>
-                  <span className="text-sm text-zinc-500">{currentDate}</span>
-                </span>
-              </p>
-            </div>
-          </motion.div>
+                <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-4"
+                >
+                <h3 className="text-4xl font-[bold] shiny-text">Let's Connect</h3>
+                <div className="flex flex-col gap-2 font-[medium]">
+                  <div className="flex gap-4 ml-1">
+                  <FaEnvelope className="text-xl" />
+                  <a 
+                  href="mailto:abhishek9661342993@gmail.com" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-white/70 transition-colors group"
+                  >
+                  abhishek9661342993@gmail.com
+                  <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    ↗
+                  </span>
+                  </a>
+                  </div>
+                  <p className="flex items-center gap-3">
+                  <span className="text-xl">📍</span>
+                  Bagodar, Jharkhand, India
+                  </p>
+                  <p className="flex items-center gap-3">
+                  <span className="text-xl">🕒</span>
+                  <span className="flex flex-col">
+                    <span>{currentTime}</span>
+                    <span className="text-sm text-zinc-500">{currentDate}</span>
+                  </span>
+                  </p>
+                </div>
+                </motion.div>
 
-          {/* Social Links */}
+                {/* Social Links */}
           <div className="flex flex-col gap-4">
             <h3 className="text-4xl font-[bold] shiny-text">Follow Me</h3>
             <div className="flex gap-6">
@@ -63,7 +73,7 @@ const Footer = () => {
                 },
                 {
                   icon: <FaLinkedin />,
-                  link: "https://www.linkedin.com/in/abhishek-gupta-545aa2260/",
+                  link: "https://www.linkedin.com/in/code-with-abhishek-kumar/",
                   color: "#0A66C2",
                 },
                 {
@@ -108,9 +118,10 @@ const Footer = () => {
             , Backend By{" "}
             <a
               href="https://www.linkedin.com/in/abhishek-gupta-545aa2260/"
-              className="font-[semibold]">
-                Abhishek Kumar
-              </a>
+              className="font-[semibold]"
+            >
+              Abhishek Kumar
+            </a>
             🚀
           </motion.p>
         </div>
