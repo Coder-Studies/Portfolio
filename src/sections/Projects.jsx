@@ -8,6 +8,7 @@ const projects = [
    {
       id: 1,
       title: 'CIITM College Website',
+      color: '#020e0f',
       description:
          'A comprehensive MERN stack application designed to provide an efficient and interactive platform for students, faculty, and administrators. It features a robust backend, a seamless user interface, and a dynamic content management system.',
       features: [
@@ -50,6 +51,7 @@ const projects = [
    {
     id: 2,
     title: 'CIITM text Website',
+    color: '#010404',
     description:
        'A comprehensive MERN stack application designed to provide an efficient and interactive platform for students, faculty, and administrators. It features a robust backend, a seamless user interface, and a dynamic content management system.',
     features: [
@@ -104,7 +106,7 @@ const Projects = () => {
                end: () => `+=${sliderRef.current.scrollWidth - window.innerWidth}`,
                scrub: 1.8,
                pin: true,
-               anticipatePin: 1,
+               anticipatePin: 2,
                invalidateOnRefresh: true,
             },
          });
@@ -127,7 +129,7 @@ const Projects = () => {
                   key={project.id}
                   className="w-[90vw] max-[640px]:w-[300vw] flex flex-col items-center justify-center ml-[3vw]"
                >
-                  <div className="h-screen flex flex-col   gap-3 pt-20 px-20 max-[640px]:px-6 bg-red-700 Project-Glassmorphism">
+                  <div className="h-screen flex flex-col   gap-3 pt-20 px-20 max-[640px]:px-6 Project-Glassmorphism" style={{ backdropFilter: 'blur(10px)'  , backgroundColor: project.color }}>
                  <h3 className='text-[1vw] font-semibold mix-blend-difference'>{project.title}</h3>
 
                      <video
