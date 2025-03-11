@@ -1,3 +1,1 @@
-export let Contact_Constant = {
-    
-}
+export let Contact_Constant = {};

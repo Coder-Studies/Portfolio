@@ -1,122 +1,117 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa";
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
-  );
-  const [currentDate, setCurrentDate] = useState(
-    new Date().toLocaleDateString()
-  );
+   const currentYear = new Date().getFullYear();
+   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+   const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString());
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date();
-      setCurrentTime(now.toLocaleTimeString());
-      setCurrentDate(now.toLocaleDateString());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+   useEffect(() => {
+      const timer = setInterval(() => {
+         const now = new Date();
+         setCurrentTime(now.toLocaleTimeString());
+         setCurrentDate(now.toLocaleDateString());
+      }, 1000);
+      return () => clearInterval(timer);
+   }, []);
 
-  return (
-    <footer className="relative bg-[#0C0C0D] text-zinc-200 border-t border-[#ffffff10] backdrop-blur-3xl mt-20">
-      <div className="max-w-7xl mx-auto px-8 max-[640px]:px-6 pt-10 pb-6">
-        <div className="flex flex-col md:flex-row gap-12 justify-between">
-          {/* Left Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-4"
-          >
-            <h3 className="text-4xl font-[bold] shiny-text">Let's Connect</h3>
-            <div className="flex flex-col gap-2 font-[medium]">
-              <p className="flex ml-1 items-center gap-4 hover:text-zinc-500 transition-colors">
-                <FaEnvelope className="text-xl" />
-                abhishek9661342993@gmail.com
-              </p>
-              <p className="flex items-center gap-3">
-                <span className="text-xl">📍</span>
-                Bagodar, Jharkhand, India
-              </p>
-              <p className="flex items-center gap-3">
-                <span className="text-xl">🕒</span>
-                <span className="flex flex-col">
-                  <span>{currentTime}</span>
-                  <span className="text-sm text-zinc-500">{currentDate}</span>
-                </span>
-              </p>
+   return (
+      <footer className="relative bg-[#0C0C0D] text-zinc-200 border-t border-[#ffffff10] backdrop-blur-3xl mt-20">
+         <div className="max-w-7xl mx-auto px-8 max-[640px]:px-6 pt-10 pb-6">
+            <div className="flex flex-col md:flex-row gap-12 justify-between">
+               {/* Left Column */}
+               <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="space-y-4"
+               >
+                  <h3 className="text-4xl font-[bold] shiny-text">Let's Connect</h3>
+                  <div className="flex flex-col gap-2 font-[medium]">
+                     <p className="flex ml-1 items-center gap-4 hover:text-zinc-500 transition-colors">
+                        <FaEnvelope className="text-xl" />
+                        abhishek9661342993@gmail.com
+                     </p>
+                     <p className="flex items-center gap-3">
+                        <span className="text-xl">📍</span>
+                        Bagodar, Jharkhand, India
+                     </p>
+                     <p className="flex items-center gap-3">
+                        <span className="text-xl">🕒</span>
+                        <span className="flex flex-col">
+                           <span>{currentTime}</span>
+                           <span className="text-sm text-zinc-500">{currentDate}</span>
+                        </span>
+                     </p>
+                  </div>
+               </motion.div>
+
+               {/* Social Links */}
+               <div className="flex flex-col gap-4">
+                  <h3 className="text-4xl font-[bold] shiny-text">Follow Me</h3>
+                  <div className="flex gap-6">
+                     {[
+                        {
+                           icon: <FaGithub />,
+                           link: 'https://github.com/Code-With-Abhishek-Kumar',
+                           color: '#111',
+                        },
+                        {
+                           icon: <FaLinkedin />,
+                           link: 'https://www.linkedin.com/in/abhishek-gupta-545aa2260/',
+                           color: '#0A66C2',
+                        },
+                        {
+                           icon: <FaInstagram />,
+                           link: 'https://www.instagram.com/abhishek_gupta.ig/',
+                           color: '#E1306C',
+                        },
+                     ].map((social, index) => (
+                        <a
+                           key={index}
+                           href={social.link}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="text-3xl p-3 rounded-full bg-zinc-900 hover:bg-zinc-100 transition-all"
+                           style={{ '--hover-color': social.color }}
+                           onMouseEnter={(e) => (e.currentTarget.style.color = social.color)}
+                           onMouseLeave={(e) => (e.currentTarget.style.color = '')}
+                        >
+                           {social.icon}
+                        </a>
+                     ))}
+                  </div>
+               </div>
             </div>
-          </motion.div>
 
-          {/* Social Links */}
-          <div className="flex flex-col gap-4">
-            <h3 className="text-4xl font-[bold] shiny-text">Follow Me</h3>
-            <div className="flex gap-6">
-              {[
-                {
-                  icon: <FaGithub />,
-                  link: "https://github.com/Code-With-Abhishek-Kumar",
-                  color: "#111",
-                },
-                {
-                  icon: <FaLinkedin />,
-                  link: "https://www.linkedin.com/in/abhishek-gupta-545aa2260/",
-                  color: "#0A66C2",
-                },
-                {
-                  icon: <FaInstagram />,
-                  link: "https://www.instagram.com/abhishek_gupta.ig/",
-                  color: "#E1306C",
-                },
-              ].map((social, index) => (
-                <a
-                  key={index}
-                  href={social.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-3xl p-3 rounded-full bg-zinc-900 hover:bg-zinc-100 transition-all"
-                  style={{ "--hover-color": social.color }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = social.color)
-                  }
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "")}
-                >
-                  {social.icon}
-                </a>
-              ))}
+            {/* Copyright */}
+            <div className="border-t border-[#ffffff10] mt-12 pt-8 text-center shiny-text font-[medium]">
+               <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+               >
+                  © {currentYear} Abhishek Kumar. Designed & Developed With ❤️ By{' '}
+                  <a
+                     href="https://www.linkedin.com/in/dev-sameer-khan/"
+                     className="font-[semibold]"
+                  >
+                     Sameer Khan
+                  </a>{' '}
+                  , Backend By{' '}
+                  <a
+                     href="https://www.linkedin.com/in/abhishek-gupta-545aa2260/"
+                     className="font-[semibold]"
+                  >
+                     Abhishek Kumar
+                  </a>
+                  🚀
+               </motion.p>
             </div>
-          </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="border-t border-[#ffffff10] mt-12 pt-8 text-center shiny-text font-[medium]">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            © {currentYear} Abhishek Kumar. Designed & Developed With ❤️ By{" "}
-            <a
-              href="https://www.linkedin.com/in/dev-sameer-khan/"
-              className="font-[semibold]"
-            >
-              Sameer Khan
-            </a>{" "}
-            , Backend By{" "}
-            <a
-              href="https://www.linkedin.com/in/abhishek-gupta-545aa2260/"
-              className="font-[semibold]">
-                Abhishek Kumar
-              </a>
-            🚀
-          </motion.p>
-        </div>
-      </div>
-    </footer>
-  );
+         </div>
+      </footer>
+   );
 };
 
 export default Footer;
