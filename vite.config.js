@@ -14,8 +14,6 @@ export default defineConfig({
 
   },
 
-
-
   theme: {
     extend: {
       keyframes: {
@@ -32,6 +30,5 @@ export default defineConfig({
     },
   },
 
- 
 
 });
