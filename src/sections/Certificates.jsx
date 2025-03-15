@@ -8,21 +8,21 @@ import { FaCertificate, FaTrophy } from "react-icons/fa";
 
 const certificates = [
   {
-    title: "Google Cloud Certification",
-    organization: "Google Cloud",
-    date: "Mar 2024",
+    title: "Advance Diploma in Computer Application Plus",
+    organization: "ICS Dhanbad",
+    date: "March 2021",
     description:
-      "Earned Professional Cloud Architect certification demonstrating cloud architecture expertise",
-    credential: "https://www.credential.net/abc123",
+      "ADCA (Advanced Diploma in Computer Application) is a full one-year diploma program that provides basic computer knowledge in depth.",
+    credential: "https://icsdhanbad.com/certificate-verification?sn=SRN-19616833&dob=08-02-2007",
     icon: <FaCertificate />,
   },
   {
-    title: "AWS Certified Developer",
+    title: "Css basic",
     organization: "Amazon Web Services",
     date: "Feb 2024",
     description:
       "Associate-level certification validating cloud application development skills",
-    credential: "https://www.credly.com/certificates/aws-dev",
+    credential: "https://www.hackerrank.com/certificates/iframe/aedaeb369079",
     icon: <FaCertificate />,
   },
   {
