@@ -3,9 +3,8 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/api/*"
+  from = "/api/"
   to = "https://portfolio-backend-pr9b.onrender.com/api/:splat"
   status = 200
-  force = true # COMMENT: ensure that we always redirect
-    headers = {Authorization = "$VITE_TOKEN"}
+  force = true 
 
