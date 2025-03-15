@@ -17,39 +17,30 @@ const projects = [
       '📡 RESTful API Integration – Developed using Node.js, Express, and MongoDB.',
       '🌍 Fully Deployed – Live on Render and integrated with a custom domain.'
     ],
-    bg_color: '#19e64e',
+    bg_color: '#70748f',
     techStack: ['React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
-    links: {
-      frontendRepo: 'https://github.com/Coder-Studies/ciitm-frontend',
-      backendRepo: 'https://github.com/Coder-Studies/Ciitm-Backend',
-      liveSite: 'https://www.growrichmindset.in/',
-      backendAPI: 'https://ciitm-backend.onrender.com/'
-    },
+    links:[
+      {
+        lable: 'Frontend Repo',
+        frontendRepo: 'https://github.com/Coder-Studies/ciitm-frontend',
+        
+      },
+      {
+        lable: 'Backend Repo',
+        frontendRepo: 'https://github.com/Coder-Studies/ciitm-frontend',
+
+      },
+      {
+        lable: 'Live Demo',
+        frontendRepo: 'https://www.growrichmindset.in/',
+
+      }
+
+    ],
+    
     video: 'https://www.pexels.com/download/video/2516160/'
   },
-  {
-    id: 2,
-    title: 'CIITM College Website',
-    description:
-      'A comprehensive MERN stack application designed to provide an efficient and interactive platform for students, faculty, and administrators. It features a robust backend, a seamless user interface, and a dynamic content management system.',
-    features: [
-      '🎓 Student Panel – Access courses, assignments, and academic records.',
-      '🛠️ Admin Dashboard – Manage students, faculty, and website content with ease.',
-      '🔐 Secure Authentication – Role-based access control for students and admins.',
-      '⚡ High-Performance UI – Built with React, Tailwind CSS, and React Router DOM.',
-      '📡 RESTful API Integration – Developed using Node.js, Express, and MongoDB.',
-      '🌍 Fully Deployed – Live on Render and integrated with a custom domain.'
-    ],
-    bg_color: '#1ce345',
-    techStack: ['React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
-    links: {
-      frontendRepo: 'https://github.com/Coder-Studies/ciitm-frontend',
-      backendRepo: 'https://github.com/Coder-Studies/Ciitm-Backend',
-      liveSite: 'https://www.growrichmindset.in/',
-      backendAPI: 'https://ciitm-backend.onrender.com/'
-    },
-    video: 'https://www.pexels.com/download/video/2516160/'
-  }
+
 ]
 
 const Projects = () => {
@@ -91,18 +82,18 @@ const Projects = () => {
         {projects.map(project => (
           <div
             key={project.id}
-            className='w-[95vw] max-[640px]:w-[100vw] flex flex-col items-center justify-center'
+            className='w-[95vw] max-[640px]:w-[100vw] flex flex-col items-center justify-center '
           >
             <div
               style={{ background: project.bg_color }}
-              className='h-screen mt-[3vh] max-[850px]:w-full w-[80vw] flex flex-col items-center justify-items-center gap-10 pt-20 px-20 max-[640px]:px-6  bg-green-600'
+              className='h-screen mt-[3vh] w-[85vw] flex flex-col items-center justify-items-center gap-10 pt-20 px-20 max-[640px]:px-6  bg-green-600 rounded-3xl'
             >
               <video
                 src={project.video}
                 autoPlay
                 loop
                 muted
-                className='w-full   max-[679px]:h-[25%] max-[679px]:w-[95%] h-[50%]  object-contain rounded-xl '
+                className='w-full   max-[679px]:h-[25%] max-[679px]:w-[95%] h-[50%]  object-cover rounded-xl '
               />
 
               <div className='flex flex-col items-start gap-2 w-full'>
@@ -139,21 +130,24 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="Link_container w-full flex gap-2 bg-red-500">
-                
+                <div className="Link_container w-full flex flex-col gap-">
+                <h6 className='max-[679px]:text-[2.5vw]  text-[0.8vw] text-yellow-600 font-bold bg-blend-difference mb-[1vh]'>
+                  Link
+                  </h6>
+
+                  <div className="flex gap-[0.5vw] flex-wrap bg-blend-difference">
                   {
-                    project.links.frontendRepo && (
-                      <a href={project.links.frontendRepo} target='_blank' rel='noreferrer'>
+                   project.links.map((link,index)=>(
+                    <a href={link.frontendRepo} className='bg-yellow-500 hover:bg-amber-600  p-2 rounded-md flex'>
+                    <p className='max-[679px]:text-[2.5vw]  text-[0.8vw] text-white font-medium'>
+                      {link.lable}
+                    </p>
+                  </a>
+                   ))
 
-                        <div className='bg-yellow-500 hover:bg-amber-600  p-2 rounded-md flex'>
-                          <p className='max-[679px]:text-[2.5vw]  text-[0.8vw] text-white font-medium'>
-                            Frontend Repo
-                          </p>
-                        </div>
-
-                      </a>
-                    )
                   }
+                  </div>
+                  
                 </div>
 
                 {/* <div className='Features_Container w-full'>
