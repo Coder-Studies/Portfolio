@@ -77,32 +77,32 @@ const Projects = () => {
                 muted
                 className="w-[70%] max-[640px]:w-[50%] h-[80%] max-[640px]:h-[93%] object-cover rounded-xl shadow-lg border border-white/20"
               />
-              <div className="text-center w-full text-white font-[semibold] px-6 max-[640px]:px-2 py-6 max-[640px]:py-2 bg-[#121212]/30 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg mt-2">
-                <h4 className="text-3xl text-[#C02F17] shiny-text">
+              <div className="text-center max-[640px]:h-[83vh] text-white font-[semibold] px-6 max-[640px]:px-2 py-6 max-[640px]:py-4 bg-[#121212]/30 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg mt-2 max-[640px]:mt-0">
+                <h4 className="text-3xl max-[640px]:text-[5vw] text-[#C02F17] shiny-text">
                   {project.title}
                 </h4>
-                <p className="mt-3 text-gray-300">{project.description}</p>
-                <ul className="mt-4 pl-4 text-left text-gray-400 space-y-2">
+                <p className="mt-3 max-[640px]:mt-1 text-gray-300 max-[640px]:text-[4vw]">{project.description}</p>
+                <ul className="mt-4 max-[640px]:mt-2 pl-4 max-[640px]:pl-1 text-left text-gray-400 space-y-2 max-[640px]:space-y-1 max-[640px]:text-[3vw]">
                   {project.features.map((feature, index) => (
                     <li key={index} className="flex items-center gap-2">
                       ✅ {feature}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-4">
-                  <h3 className="text-lg font-[semibold]">Tech Stack:</h3>
-                  <div className="flex flex-wrap justify-center gap-2 mt-2">
+                <div className="mt-4 max-[640px]:mt-1">
+                  <h3 className="text-lg max-[640px]:text-[4vw] font-[semibold]">Tech Stack:</h3>
+                  <div className="flex flex-wrap justify-center gap-2 max-[640px]:gap-1 mt-2 max-[640px]:mt-1">
                     {project.techStack.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-gray-700/50 backdrop-blur-md rounded-md"
+                        className="px-3 py-1 max-[640px]:text-[3vw] bg-gray-700/50 backdrop-blur-md rounded-md"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="mt-6 flex flex-wrap justify-center gap-4">
+                <div className="mt-6 max-[640px]:mt-2 flex flex-wrap justify-center gap-4 max-[640px]:gap-2 max-[640px]:text-[3.5vw]">
                   <a
                     href={project.links.frontendRepo}
                     target="_blank"
