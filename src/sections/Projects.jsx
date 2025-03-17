@@ -67,7 +67,7 @@ const Projects = () => {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="w-[150vw] max-[640px]:w-[300vw] flex flex-col items-center justify-center"
+            className="w-[150vw] max-[640px]:w-[250vw] flex flex-col items-center justify-center"
           >
             <div className="h-screen flex items-center justify-evenly gap-10 pt-20 px-20 max-[640px]:px-6">
               <video
@@ -75,9 +75,9 @@ const Projects = () => {
                 autoPlay
                 loop
                 muted
-                className="w-[70%] max-[640px]:w-[30%] h-[80%] max-[640px]:h-[60%] object-cover rounded-xl shadow-lg border border-white/20"
+                className="w-[70%] max-[640px]:w-[50%] h-[80%] max-[640px]:h-[93%] object-cover rounded-xl shadow-lg border border-white/20"
               />
-              <div className="text-center text-white font-[semibold] px-6 py-6 bg-[#121212]/30 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg mt-2">
+              <div className="text-center w-full text-white font-[semibold] px-6 max-[640px]:px-2 py-6 max-[640px]:py-2 bg-[#121212]/30 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg mt-2">
                 <h4 className="text-3xl text-[#C02F17] shiny-text">
                   {project.title}
                 </h4>
