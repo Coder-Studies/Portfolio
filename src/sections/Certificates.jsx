@@ -16,40 +16,17 @@ const certificates = [
     credential: "https://icsdhanbad.com/certificate-verification?sn=SRN-19616833&dob=08-02-2007",
     icon: <FaCertificate />,
   },
+ 
   {
-    title: "Css basic",
-    organization: "Amazon Web Services",
-    date: "Feb 2024",
-    description:
-      "Associate-level certification validating cloud application development skills",
-    credential: "https://www.hackerrank.com/certificates/iframe/aedaeb369079",
-    icon: <FaCertificate />,
-  },
-  {
-    title: "Microsoft Learn AI Challenge",
-    organization: "Microsoft",
-    date: "Jan 2024",
-    description:
-      "Won 2nd place in global AI development challenge with 5000+ participants",
-    icon: <FaTrophy />,
-  },
-  {
-    title: "Hackathon Winner",
-    organization: "DevFest 2023",
+    title: "Mentorship Program",
+    organization: "Pregrad",
     date: "Nov 2023",
     description:
-      "1st place in national-level hackathon for innovative e-commerce solution",
+      "3 montorship program",
+    credential: "https://media.licdn.com/dms/image/v2/D562DAQE1ZDTdz3WdaQ/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1712373466840?e=1742986800&v=beta&t=3TO-OSsOXNGAe_7svhYWe82PuvPgO7ebTTt33uJe5T0",
     icon: <FaTrophy />,
   },
-  {
-    title: "Full Stack Development Certification",
-    organization: "Coursera",
-    date: "Oct 2023",
-    description:
-      "Completed intensive full-stack development program with honors",
-    credential: "https://coursera.org/certificates/fullstack",
-    icon: <FaCertificate />,
-  },
+
 ];
 
 const Certificates = () => {

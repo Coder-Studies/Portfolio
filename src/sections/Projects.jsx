@@ -1,168 +1,195 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import axios from 'axios'
+import Swal from 'sweetalert2'
+import { setProjectData } from '../Store/Ui.Slice'
+import { useDispatch, useSelector } from 'react-redux'
 gsap.registerPlugin(ScrollTrigger)
 
-const projects = [
-  {
-    id: 1,
-    title: 'CIITM College Website',
-    description:
-      'A comprehensive MERN stack application designed to provide an efficient and interactive platform for students, faculty, and administrators. It features a robust backend, a seamless user interface, and a dynamic content management system.',
-    features: [
-      '🎓 Student Panel – Access courses, assignments, and academic records.',
-      '🛠️ Admin Dashboard – Manage students, faculty, and website content with ease.',
-      '🔐 Secure Authentication – Role-based access control for students and admins.',
-      '⚡ High-Performance UI – Built with React, Tailwind CSS, and React Router DOM.',
-      '📡 RESTful API Integration – Developed using Node.js, Express, and MongoDB.',
-      '🌍 Fully Deployed – Live on Render and integrated with a custom domain.'
-    ],
-    bg_color: '#70748f',
-    techStack: ['React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
-    links:[
-      {
-        lable: 'Frontend Repo',
-        frontendRepo: 'https://github.com/Coder-Studies/ciitm-frontend',
-        
-      },
-      {
-        lable: 'Backend Repo',
-        frontendRepo: 'https://github.com/Coder-Studies/ciitm-frontend',
 
-      },
-      {
-        lable: 'Live Demo',
-        frontendRepo: 'https://www.growrichmindset.in/',
+let Token = import.meta.env.VITE_TOKEN
 
-      }
+if (!Token) {
+  Swal.fire({
+    icon: 'error',
+    title: 'Error',
+    theme: 'dark',
 
-    ],
-    
-    video: 'https://www.pexels.com/download/video/2516160/'
-  },
+    text: 'Token is missing in .env file'
+  })
+}
 
-]
+
+
 
 const Projects = () => {
+  let projectData = useSelector(state => state.Ui.projects)
+
+
+  if (!projectData) {
+    projectData = []
+  }
+  
+  let dispatch = useDispatch()
+
+  console.log('ui', projectData)
+
+  const [projects, setProjects] = useState([])
   const containerRef = useRef(null)
   const sliderRef = useRef(null)
+
+
+ 
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(sliderRef.current, {
-        x: () => -sliderRef.current.scrollWidth + window.innerWidth,
-        ease: 'none',
+        x: () => sliderRef.current.scrollWidth - window.innerWidth,
+        ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top top',
-          end: () => `+=${sliderRef.current.scrollWidth - window.innerWidth}`,
-          scrub: 1.2,
+          start: "top top",
+          end: () => `-=${sliderRef.current.scrollWidth - window.innerWidth}`,
+          scrub: 1.5,
           pin: true,
           anticipatePin: 1,
-          invalidateOnRefresh: true
-        }
-      })
-    }, containerRef)
+          invalidateOnRefresh: true,
+        },
+      });
+    }, containerRef);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
+
+
+  useEffect(() => {
+    let get_All_Projects = async () => {
+      try {
+        if (projectData.length > 0) {
+          setProjects(projectData)
+          return
+        }
+
+        let res = await axios.get('/api/v1/project/find', {
+          headers: {
+            Authorization: `${Token}`
+          }
+        })
+
+        let data = res.data.data
+        dispatch(setProjectData([...data]))
+        setProjects(data)
+      } catch (error) {
+        console.log(error)
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: error.response.data.message
+        })
+      }
+    }
+
+    get_All_Projects()
+  }, [projectData])
+
+
 
   return (
     <div
       ref={containerRef}
-      className='relative w-[350vw] max-[640px]:w-[350vw] min-h-screen overflow-hidden bg-[#0C0C0D] flex items-center'
+      className='relative w-[200vw] max-[640px]:w-[350vw] min-h-screen overflow-hidden bg-[#0C0C0D] flex items-center'
     >
-      <h2 className='absolute bg-blend-difference top-10 left-[40vw] max-[640px]:left-[40vw]  text-[4.5vw] lg:text-[3vw] 2xl:text-[2vw] font-[bold] text-gray-100 z-10 shiny-text'>
+      <h2 className='absolute top-10 left-[22%] max-[640px]:left-[3.5%] text-5xl font-[bold] text-gray-100 z-10 shiny-text'>
         My Projects 🚀
       </h2>
       <div
         ref={sliderRef}
-        className='flex h-full items-center will-change-transform gap-[1vw] mt-[1vh]'
+        className='flex h-full items-center will-change-transform'
       >
         {projects.map(project => (
           <div
             key={project.id}
-            className='w-[95vw] max-[640px]:w-[100vw] flex flex-col items-center justify-center '
+            className='w-[150vw] max-[640px]:w-[250vw] flex flex-col items-center justify-center'
           >
-            <div
-              style={{ background: project.bg_color }}
-              className='h-screen mt-[3vh] w-[85vw] flex flex-col items-center justify-items-center gap-10 pt-20 px-20 max-[640px]:px-6  bg-green-600 rounded-3xl'
-            >
-              <video
+            <div className='h-screen flex items-center justify-evenly gap-10 pt-20 px-20 max-[640px]:px-6'>
+              <iframe
                 src={project.video}
-                autoPlay
-                loop
-                muted
-                className='w-full   max-[679px]:h-[25%] max-[679px]:w-[95%] h-[50%]  object-cover rounded-xl '
+                title={project.title}
+                className='Video_Container w-[70%] max-[640px]:w-[50%] h-[80%] max-[640px]:h-[93%] object-cover rounded-xl shadow-lg border border-white/20'
+                allowfullscreen='true'
               />
 
-              <div className='flex flex-col items-start gap-2 w-full'>
-                <h4 className='   max-[679px]:text-[2.5vw]   text-[1.2vw]    text-white   text-left w-full font-semibold'>
+
+              <div className='About__Project w-[95vw]  text-center max-[640px]:h-[83v] text-white font-[semibold] px-6 max-[640px]:px-2 py-6 max-[640px]:py-4 bg-[#121212]/30 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg  max-[640px]:mt-0'>
+                <h4 className='text-3xl max-[640px]:text-[5vw] text-[#C02F17] shiny-text'>
                   {project.title}
                 </h4>
 
-                <div className='Description_Container flex flex-col items-start gap-4 w-full'>
-                  <h6 className='max-[679px]:text-[2.5vw]  text-[0.8vw] text-yellow-600 font-bold bg-blend-difference'>
-                    Description
-                  </h6>
-                  <p className='max-[679px]:text-[2.2vw]  max-[679px]:w-[80%] text-[0.8vw] text-white font-normal bg-blend-difference'>
-                    {project.description}
-                  </p>
+                <div className="Project_Description w-full  flex items-center justify-center">
+                <p className='mt-3 max-[640px]:mt-1 text-gray-300 max-[640px]:text-[4vw] w-[85%]  text-center'>
+                  {project.description}
+                </p>
+
                 </div>
-
-                <div className='Tech_Stack_Container w-full flex flex-col gap-2'>
-                  <h6 className='max-[679px]:text-[2.5vw]  text-[0.8vw] text-yellow-600 font-bold bg-blend-difference'>
-                    Tech Stack
-                  </h6>
-
-                  <div className='flex gap-[0.5vw] flex-wrap bg-blend-difference'>
-                    {' '}
+              
+                <ul className='mt-4 max-[640px]:mt-2 pl-4 max-[640px]:pl-1 text-left text-gray-400 space-y-2 max-[640px]:space-y-1 max-[640px]:text-[3vw]'>
+                  {project.features.map((feature, index) => (
+                    <li key={index} className='flex items-center gap-2 w-fit'>
+                      ✅ {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className='mt-4 max-[640px]:mt-1'>
+                  <h3 className='text-lg max-[640px]:text-[4vw] font-[semibold]'>
+                    Tech Stack:
+                  </h3>
+                  <div className='flex flex-wrap justify-center gap-2 max-[640px]:gap-1 mt-2 max-[640px]:mt-1'>
                     {project.techStack.map((tech, index) => (
-                      <div
+                      <span
                         key={index}
-                        className='bg-yellow-500 hover:bg-amber-600  p-2 rounded-md flex'
+                        className='px-3 py-1 max-[640px]:text-[3vw] bg-gray-700/50 backdrop-blur-md rounded-md'
                       >
-                        <p className='max-[679px]:text-[2.5vw]  text-[0.8vw] text-white font-medium'>
-                          {tech}
-                        </p>
-                      </div>
+                        {tech}
+                      </span>
                     ))}
                   </div>
                 </div>
-
-                <div className="Link_container w-full flex flex-col gap-">
-                <h6 className='max-[679px]:text-[2.5vw]  text-[0.8vw] text-yellow-600 font-bold bg-blend-difference mb-[1vh]'>
-                  Link
-                  </h6>
-
-                  <div className="flex gap-[0.5vw] flex-wrap bg-blend-difference">
-                  {
-                   project.links.map((link,index)=>(
-                    <a href={link.frontendRepo} className='bg-yellow-500 hover:bg-amber-600  p-2 rounded-md flex'>
-                    <p className='max-[679px]:text-[2.5vw]  text-[0.8vw] text-white font-medium'>
-                      {link.lable}
-                    </p>
+                <div className='mt-6 max-[640px]:mt-2 flex flex-wrap justify-center gap-4 max-[640px]:gap-2 max-[640px]:text-[3.5vw]'>
+                  <a
+                    href={project.links.frontendRepo}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='px-4 py-2 bg-blue-600/50 backdrop-blur-md hover:bg-blue-500 rounded-lg text-white'
+                  >
+                    Frontend Repo
                   </a>
-                   ))
-
-                  }
-                  </div>
-                  
+                  <a
+                    href={project.links.backendRepo}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='px-4 py-2 bg-green-600/50 backdrop-blur-md hover:bg-green-500 rounded-lg text-white'
+                  >
+                    Backend Repo
+                  </a>
+                  <a
+                    href={project.links.liveSite}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='px-4 py-2 bg-purple-600/50 backdrop-blur-md hover:bg-purple-500 rounded-lg text-white'
+                  >
+                    Live Website
+                  </a>
+                  <a
+                    href={project.links.backendAPI}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='px-4 py-2 bg-orange-600/50 backdrop-blur-md hover:bg-orange-500 rounded-lg text-white'
+                  >
+                    Backend API
+                  </a>
                 </div>
-
-                {/* <div className='Features_Container w-full'>
-                <h6 className='max-[679px]:text-[2.5vw]  text-[0.8vw] text-yellow-600 font-medium'>
-                  Feature's
-                </h6>
-                {project.features.map((feature, index) => (
-                  <div key={index} className='flex items-center gap-2'>
-                    <div className='w-2 h-2 bg-yellow-500 rounded-full'></div>
-                    <p className='max-[679px]:text-[1vw]  text-[0.8vw] text-white font-normal'>
-                      {feature}
-                    </p>
-                  </div>
-                ))}
-              </div> */}
               </div>
             </div>
           </div>
