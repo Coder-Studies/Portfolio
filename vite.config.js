@@ -8,8 +8,7 @@ export default defineConfig({
 
   server:{
     proxy: {
-      '/api': 'https://portfolio-backend-pr9b.onrender.com'
-
+      '/api': 'http://localhost:4000',
     }
 
   },
