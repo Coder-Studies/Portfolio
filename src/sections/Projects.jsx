@@ -6,10 +6,17 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import { setProjectData } from '../Store/Ui.Slice'
 import { useDispatch, useSelector } from 'react-redux'
+import envConstant from '../../constant/env.constant.mjs'
 gsap.registerPlugin(ScrollTrigger)
 
 
-let Token = import.meta.env.VITE_TOKEN
+
+let Token = envConstant.TOKEN
+
+
+
+
+
 
 if (!Token) {
   Swal.fire({
@@ -28,13 +35,13 @@ const Projects = () => {
   let projectData = useSelector(state => state.Ui.projects)
 
 
-  if (!projectData) {
-    projectData = []
-  }
+  // if (!projectData) {
+  //   projectData = []
+  // }
   
   let dispatch = useDispatch()
 
-  console.log('ui', projectData)
+
 
   const [projects, setProjects] = useState([])
   const containerRef = useRef(null)
@@ -64,34 +71,38 @@ const Projects = () => {
   }, []);
 
 
-  useEffect(() => {
-    let get_All_Projects = async () => {
-      try {
-        if (projectData.length > 0) {
-          setProjects(projectData)
-          return
-        }
-
-        let res = await axios.get('/api/v1/project/find', {
-          headers: {
-            Authorization: `${Token}`
-          }
-        })
-
-        let data = res.data.data
-        dispatch(setProjectData([...data]))
-        setProjects(data)
-      } catch (error) {
-        console.log(error)
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: error.response.data.message
-        })
+  let get_All_Projects = async () => {
+    try {
+      if (projectData.length > 0) {
+        setProjects(projectData)
+        return
       }
-    }
 
+      let res = await axios.get('/api/v1/project/find', {
+        headers: {
+          Authorization: `${Token}`
+        }
+      })
+
+      let data = res.data.data
+      dispatch(setProjectData([...data]))
+      setProjects(data)
+    } catch (error) {
+      console.log(error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: error.response.data.message
+      })
+    }
+  }
+
+
+
+  useEffect(() => {
     get_All_Projects()
+  
+    
   }, [projectData])
 
 

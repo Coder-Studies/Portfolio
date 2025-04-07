@@ -12,9 +12,12 @@ import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import Certificates from "./sections/Certificates";
 import About from "./sections/About";
+import envConstant from "../constant/env.constant.mjs";
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+
+
 
   useEffect(() => {
     setTimeout(() => setIsLoaded(true), 5000);
