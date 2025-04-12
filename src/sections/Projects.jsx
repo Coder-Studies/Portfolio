@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { memo } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { setProjectData } from '../Store/Ui.Slice'
@@ -171,38 +170,22 @@ const Projects = memo(() => {
                   </div>
                 </div>
                 <div className='mt-6 max-[640px]:mt-2 flex flex-wrap justify-center gap-4 max-[640px]:gap-2 max-[640px]:text-[3.5vw]'>
-                  <a
-                    href={project.links.frontendRepo}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='px-4 py-2 bg-blue-600/50 backdrop-blur-md hover:bg-blue-500 rounded-lg text-white'
-                  >
-                    Frontend Repo
-                  </a>
-                  <a
-                    href={project.links.backendRepo}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='px-4 py-2 bg-green-600/50 backdrop-blur-md hover:bg-green-500 rounded-lg text-white'
-                  >
-                    Backend Repo
-                  </a>
-                  <a
-                    href={project.links.liveSite}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='px-4 py-2 bg-purple-600/50 backdrop-blur-md hover:bg-purple-500 rounded-lg text-white'
-                  >
-                    Live Website
-                  </a>
-                  <a
-                    href={project.links.backendAPI}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='px-4 py-2 bg-orange-600/50 backdrop-blur-md hover:bg-orange-500 rounded-lg text-white'
-                  >
-                    Backend API
-                  </a>
+
+                {
+  project.links.map((element, index) => (
+    <a
+      key={index}
+      href={element.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="px-4 py-2 bg-green-600/50 backdrop-blur-md hover:bg-green-500 rounded-lg text-white"
+    >
+      {element.label}
+    </a>
+  ))
+}
+
+             
                 </div>
               </div>
             </div>
