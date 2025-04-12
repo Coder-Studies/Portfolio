@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -31,7 +31,7 @@ if (!Token) {
 
 
 
-const Projects = () => {
+const Projects = useMemo(() => {
   let projectData = useSelector(state => state.Ui.projects)
 
 
@@ -100,6 +100,8 @@ const Projects = () => {
 
 
   useEffect(() => {
+
+    
     get_All_Projects()
   
     
@@ -208,6 +210,6 @@ const Projects = () => {
       </div>
     </div>
   )
-}
+})
 
 export default Projects
