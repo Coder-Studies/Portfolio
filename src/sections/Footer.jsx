@@ -36,12 +36,12 @@ const Footer = () => {
                   <div className="flex gap-4 ml-1">
                   <FaEnvelope className="text-xl" />
                   <a 
-                  href="mailto:abhishek9661342993@gmail.com" 
+                  href="mailto:abhishek.nextgen.dev@gmail.com" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-white/70 transition-colors group"
                   >
-                  abhishek9661342993@gmail.com
+                  abhishek.nextgen.dev@gmail.com
                   <span className="text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                     ↗
                   </span>
@@ -68,17 +68,17 @@ const Footer = () => {
               {[
                 {
                   icon: <FaGithub />,
-                  link: "https://github.com/Code-With-Abhishek-Kumar",
+                  link: "https://github.com/abhishek-nextgen-dev",
                   color: "#111",
                 },
                 {
                   icon: <FaLinkedin />,
-                  link: "https://www.linkedin.com/in/code-with-abhishek-kumar/",
+                  link: "https://www.linkedin.com/in/abhishek-nexgen-dev",
                   color: "#0A66C2",
                 },
                 {
                   icon: <FaInstagram />,
-                  link: "https://www.instagram.com/abhishek_gupta.ig/",
+                  link: "https://www.instagram.com/abhishek.nextgen.dev",
                   color: "#E1306C",
                 },
               ].map((social, index) => (
@@ -117,7 +117,7 @@ const Footer = () => {
             </a>{" "}
             , Backend By{" "}
             <a
-              href="https://www.linkedin.com/in/abhishek-gupta-545aa2260/"
+              href="https://www.linkedin.com/in/abhishek-nexgen-dev"
               className="font-[semibold]"
             >
               Abhishek Kumar
