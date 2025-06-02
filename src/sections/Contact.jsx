@@ -22,7 +22,7 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: <FaEnvelope />,
-      url: "mailto:abhishek9661342993@gmail.com",
+      url: "mailto:abhishek.nextgen.dev@gmail.com",
       color: "#EA4335",
     },
     {
@@ -32,17 +32,17 @@ const Contact = () => {
     },
     {
       icon: <FaInstagram />,
-      url: "https://www.instagram.com/abhishek_gupta.ig/",
+      url: "https://www.instagram.com/abhishek-nextgen-dev",
       color: "#E4405F",
     },
     {
       icon: <FaLinkedin />,
-      url: "https://www.linkedin.com/in/code-with-abhishek-kumar/",
+      url: "https://www.linkedin.com/in/abhishek-nextgen-dev",
       color: "#0077B5",
     },
     {
       icon: <FaGithub />,
-      url: "https://github.com/Code-With-Abhishek-Kumar",
+      url: "https://github.com/abhishek-nextgen-dev ",
       color: "#ffff",
     },
     {
