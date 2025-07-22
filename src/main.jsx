@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 
 import { Provider } from "react-redux";
-import store from './Store/store.js'
+import store from "./Store/store.js";
 import Lenis from "lenis";
 
 // Initialize Lenis
@@ -23,6 +23,5 @@ createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <App />
     </Provider>
-
   </StrictMode>
 );

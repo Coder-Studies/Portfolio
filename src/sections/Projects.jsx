@@ -1,38 +1,53 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { memo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import axios from "axios";
-import Swal from "sweetalert2";
-import { setProjectData } from "../Store/Ui.Slice";
-import { useDispatch, useSelector } from "react-redux";
-import envConstant from "../../constant/env.constant.mjs";
+
 gsap.registerPlugin(ScrollTrigger);
 
-let Token = envConstant.TOKEN;
-
-if (!Token) {
-  Swal.fire({
-    icon: "error",
-    title: "Error",
-    theme: "dark",
-
-    text: "Token is missing in .env file",
-  });
-}
-
 const Projects = memo(() => {
-  let projectData = useSelector((state) => state.Ui.projects);
-
-  // if (!projectData) {
-  //   projectData = []
-  // }
-
-  let dispatch = useDispatch();
-
-  const [projects, setProjects] = useState([]);
   const containerRef = useRef(null);
   const sliderRef = useRef(null);
+
+  // Static project data
+  const projects = [
+    {
+      id: 1,
+      title: "Portfolio Website",
+      description: "A modern portfolio website showcasing my skills and projects.",
+      features: ["Responsive Design", "Interactive Animations", "SEO Optimized"],
+      techStack: ["React", "Tailwind CSS", "GSAP"],
+      links: [
+        { label: "GitHub", link: "https://github.com/portfolio-website" },
+        { label: "Live Demo", link: "https://portfolio-website.com" },
+      ],
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    },
+    {
+      id: 2,
+      title: "E-Commerce Platform",
+      description: "A scalable e-commerce platform with payment integration.",
+      features: ["Product Management", "Secure Payments", "User Authentication"],
+      techStack: ["Node.js", "Express", "MongoDB"],
+      links: [
+        { label: "GitHub", link: "https://github.com/ecommerce-platform" },
+        { label: "Live Demo", link: "https://ecommerce-platform.com" },
+      ],
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    },
+    {
+      id: 3,
+      title: "Chat Application",
+      description: "A real-time chat application with WebSocket integration.",
+      features: ["Real-Time Messaging", "Group Chats", "Media Sharing"],
+      techStack: ["React", "Socket.IO", "Firebase"],
+      links: [
+        { label: "GitHub", link: "https://github.com/chat-application" },
+        { label: "Live Demo", link: "https://chat-application.com" },
+      ],
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    },
+  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -54,42 +69,12 @@ const Projects = memo(() => {
     return () => ctx.revert();
   }, []);
 
-  let get_All_Projects = async () => {
-    try {
-      if (projectData.length > 0) {
-        setProjects(projectData);
-        return;
-      }
-
-      let res = await axios.get("/api/v1/project/find", {
-        headers: {
-          Authorization: `${Token}`,
-        },
-      });
-
-      let data = res.data.data;
-      dispatch(setProjectData([...data]));
-      setProjects(data);
-    } catch (error) {
-      console.log(error);
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: error.response.data.message,
-      });
-    }
-  };
-
-  useEffect(() => {
-    get_All_Projects();
-  }, [projectData]);
-
   return (
     <div
       ref={containerRef}
-      className="relative w-[200vw] max-[640px]:w-[350vw] min-h-screen overflow-hidden bg-[#0C0C0D] flex items-center"
+      className="relative w-[200vw] max-[640px]:w-[350vw] min-h-screen overflow-hidden bg-gradient-to-r from-[#0C0C0D] to-[#1A1A1D] flex items-center"
     >
-      <h2 className="absolute top-10 left-[22%] max-[640px]:left-[7%] max-[640px]:text-[8vw] text-5xl font-[bold] text-gray-100 z-10 shiny-text">
+      <h2 className="absolute top-10 left-[22%] max-[640px]:left-[7%] max-[640px]:text-[8vw] text-5xl font-[bold] text-[#FFD700] z-10 shiny-text">
         My Projects 🚀
       </h2>
       <div
@@ -106,12 +91,12 @@ const Projects = memo(() => {
                 src={project.video}
                 title={project.title}
                 className="Video_Container w-[70%] max-[640px]:w-[50%] object-cover rounded-xl shadow-lg border border-white/20 h-[71vh] max-[640px]:hidden"
-                allowfullscreen="true"
+                allowFullScreen
               />
 
               <div className="About__Project w-[95vw] text-center text-white font-semibold px-6 py-6 max-[640px]:px-2 max-[640px]:py-4 bg-[#121212]/40 backdrop-blur-lg border border-gray-700/40 rounded-xl shadow-2xl max-[640px]:mt-0">
                 {/* Project Title */}
-                <h4 className="text-3xl text-[#C02F17] font-bold shiny-text text-[1.2vw] max-[640px]:text-[3.5vw] border-b border-[#C02F17] pb-2 w-fit mx-auto">
+                <h4 className="text-3xl text-[#32CD32] font-bold shiny-text text-[1.2vw] max-[640px]:text-[3.5vw] border-b border-[#32CD32] pb-2 w-fit mx-auto">
                   {project.title}
                 </h4>
 
@@ -124,7 +109,7 @@ const Projects = memo(() => {
 
                 {/* Features */}
                 <ul className="mt-4 max-[640px]:mt-[2vh] pl-4 max-[640px]:pl-1 text-left space-y-2 max-[640px]:space-y-1">
-                  <li className="text-[0.9vw] max-[640px]:text-[2vw] text-[#f59e0b] font-bold border-l-4 border-[#f59e0b] pl-2 mb-[2.5vh]">
+                  <li className="text-[0.9vw] max-[640px]:text-[2vw] text-[#FFD700] font-bold border-l-4 border-[#FFD700] pl-2 mb-[2.5vh]">
                     Features:
                   </li>
                   {project.features.map((feature, index) => (
