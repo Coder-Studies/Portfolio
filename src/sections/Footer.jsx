@@ -105,6 +105,7 @@ const Footer = () => {
             <h3 className="text-4xl font-[bold] shiny-text">Important Links</h3>
             <ul className="list-none space-y-2">
               {[
+                { name: "Home", link: "/" },
                 { name: "Terms and Conditions", link: "/terms-and-conditions" },
                 { name: "Public Contact Details", link: "/public-contact-details" },
                 { name: "Refund and Cancellation Policy", link: "/refund-and-cancellation-policy" },

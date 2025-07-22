@@ -6,6 +6,7 @@ import App from "./App.jsx";
 import { Provider } from "react-redux";
 import store from "./Store/store.js";
 import Lenis from "lenis";
+import { BrowserRouter } from "react-router-dom";
 
 // Initialize Lenis
 const lenis = new Lenis();
